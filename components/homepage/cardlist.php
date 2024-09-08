@@ -5,6 +5,7 @@
 <div class="infocard">
         <div class="reviews">
                 <?php
+                $vote=22;
                 include "./components/homepage/noneditable-rating.php";
                 ?>
                 <div class="soldInfo"><p>66 sold</p></div>

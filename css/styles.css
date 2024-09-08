@@ -62,13 +62,23 @@ body {
 }
 
 .menu {
+  display: flex;
+  gap: 30px;
+  margin-right: 14px;
+}
+.menu .icon {
   width: 40px;
   height: 40px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
   display: flex;
-  align-items: end;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-right: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.menu .carticon img, .menu .profileicon img {
+  width: 30px;
+  height: 30px;
 }
 
 .linemenu {
@@ -312,20 +322,29 @@ body {
   height: 100rem;
   margin-top: 20px;
   margin-left: 20px;
-  background-color: #aaa;
+  background-color: rgba(170, 170, 170, 0.2745098039);
   box-shadow: 3px 3px 20px rgb(25, 25, 25);
 }
 .sidebar .section1 {
   width: 100%;
   height: 300px;
-  background-color: rgb(14, 105, 184);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+.sidebar .section1 input {
+  width: 60px;
+  height: 40px;
+  border-radius: 15px;
+  text-align: center;
+  border: 0;
+  outline: 0;
 }
 .sidebar .section2 {
   width: 100%;
   height: 100px;
-  background-color: red;
 }
-
 .rating {
   margin-right: 10px;
   display: flex;
@@ -337,24 +356,88 @@ body {
   margin-right: 4px;
 }
 
-.rating:not(:checked) > input {
-  position: absolute;
-  appearance: none;
-}
-
-.rating:not(:checked) > label {
+.rating > .star {
   float: right;
   cursor: pointer;
   font-size: 20px;
   color: #666;
 }
 
-.rating:not(:checked) > label:before {
+.rating > .star:before {
   content: "★";
 }
 
-.rating > input:checked ~ label {
+.rating > .checked:before {
+  content: "★";
+}
+
+.rating > .checked {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
   color: #ffa723;
+}
+
+.form {
+  width: 400px;
+  min-height: 400px;
+  height: fit-content;
+  position: absolute;
+  top: -600px;
+  left: auto;
+  justify-self: center;
+  background-color: #0A192F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  border: 6px solid yellow;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.form .state {
+  display: flex;
+  width: 100%;
+}
+.form .state button {
+  margin-bottom: 20px;
+  width: 50%;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  border: rgba(0, 0, 0, 0);
+  color: #FFFFFF;
+}
+.form .state .loginOption {
+  border-bottom: 4px solid yellow;
+}
+.form .state .underline {
+  width: 50%;
+  height: 20px;
+  background-color: white;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form form input {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+}
+.form label {
+  color: #FFFFFF;
+}
+
+.formbg {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0;
+  background-color: rgba(51, 51, 51, 0.5411764706);
 }
 
 /*# sourceMappingURL=styles.css.map */

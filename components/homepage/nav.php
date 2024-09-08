@@ -21,10 +21,13 @@
   </div>
   <div class=""></div>
 </div>
-
-    <div class="menu">
+<div class="menu">
+  <div class="icon profileicon"><img src="./image/icons/user.icon" alt="issue"></div>
+  <div class="icon carticon"><img src="./image/icons/cart.icon" alt="issue"></div>
+</div>
+    <!-- <div class="menu">
         <div class="linemenu"></div>
         <div class="linemenuL"></div>
         <div class="linemenu"></div>
-        </div>
+        </div> -->
 </div>
