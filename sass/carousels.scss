@@ -1,0 +1,108 @@
+@import 'variables';
+
+.carousel-container {
+  position: relative;
+  max-width: $carousel-width;
+  max-height: $carousel-height;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: $carousel-border-radius;
+  box-shadow: $carousel-shadow;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out; // Smooth sliding effect
+  height: $carousel-height; // Set height for carousel items
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: $carousel-height; // Ensure carousel items have a fixed height
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // Ensure the image covers the entire container without stretching
+}
+
+.placeholder {
+  background-color: $placeholder-bg-color;
+  color: white;
+  height: $carousel-height;
+  width: $carousel-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: $carousel-border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+// Carousel controls for navigation (prev and next)
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $control-bg-color;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: $control-size;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.carousel-control:hover {
+  background-color: $control-hover-bg-color;
+}
+
+// Indicators (radio buttons for slide navigation)
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.carousel-indicators input[type="radio"] {
+  opacity: 0.7;
+  position: relative;
+  width: $indicator-size;
+  height: $indicator-size;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicators input[type="radio"]::before {
+  content: '○'; // Default unselected indicator
+  font-size: $indicator-font-size;
+  color: $indicator-color;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel-indicators input[type="radio"]:checked::before {
+  content: '●'; // Selected indicator
+  font-size: $indicator-font-size;
+  color: $indicator-checked-color;
+}

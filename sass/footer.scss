@@ -1,0 +1,117 @@
+@import 'function'; // Importing the function file with color definitions
+
+// Define the current theme
+$current_theme: 'quantum';
+
+// Set colors based on the current theme using the function
+$footer-background: get-color($current_theme, 'primary');
+$footer-text-color: get-color($current_theme, 'text');
+$footer-accent: get-color($current_theme, 'accent-1');
+
+.footer {
+    margin-top: 60px; // Added margin above the footer
+    background-color: $footer-background;
+    color: $footer-text-color;
+    padding: 60px 40px;
+    border-top: 3px solid $footer-accent; // Add top border for separation
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px; // Spacing between sections
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 220px;
+
+        h4 {
+            font-size: 1.5em; // Larger heading
+            border-bottom: 2px solid $footer-accent;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: $footer-accent; // Accent color for headings
+        }
+
+        p {
+            margin: 10px 0;
+            line-height: 1.5; // Better readability
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin: 10px 0;
+
+                a {
+                    color: $footer-text-color;
+                    text-decoration: none;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: $footer-accent; // Change color on hover
+                    }
+                }
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+
+            .social-icon {
+                color: $footer-text-color;
+                text-decoration: none;
+                
+                &:hover {
+                    color: $footer-accent; // Change color on hover
+                }
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+
+            input[type="email"] {
+                padding: 12px;
+                margin-bottom: 12px;
+                border: 2px solid $footer-accent; // Clear border for contrast
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.9); // Light background for clarity
+                color: $footer-background; // Text color for better visibility
+
+                &::placeholder {
+                    color: darken($footer-background, 20%); // Darker placeholder color
+                }
+            }
+
+            button {
+                padding: 12px;
+                border: none;
+                background-color: $footer-accent;
+                color: $footer-text-color;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: darken($footer-accent, 10%);
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+        border-top: 1px solid $footer-text-color;
+        padding-top: 20px;
+        font-size: 0.9em;
+    }
+}
