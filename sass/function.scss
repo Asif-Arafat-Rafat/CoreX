@@ -3,3 +3,8 @@
 @function get-color($palette-name,$color-name){
     @return map-get(map-get($color-palettes,$palette-name),$color-name);
 }
+$current-theme: "quantum";
+$card-width: 250px;
+$card-height: $card-width * 1.25;
+$list-width: 530px;
+$list-details:$list-width - 125;

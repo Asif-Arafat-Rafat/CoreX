@@ -1,10 +1,15 @@
 @import 'variables';
-
+@import 'carousels_card';
+.top_section{
+  display: flex;
+  margin-left: 30px;
+  margin-right: 30px;
+  gap: 30px;
+}
 .carousel-container {
   position: relative;
   max-width: $carousel-width;
   max-height: $carousel-height;
-  margin: 50px auto;
   overflow: hidden;
   border-radius: $carousel-border-radius;
   box-shadow: $carousel-shadow;
@@ -56,7 +61,7 @@ img {
   border: none;
   padding: 10px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 4;
   font-size: $control-size;
   border-radius: 50%;
 }
@@ -80,7 +85,7 @@ img {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  z-index: 10;
+  z-index: 4;
 }
 
 .carousel-indicators input[type="radio"] {
@@ -106,3 +111,4 @@ img {
   font-size: $indicator-font-size;
   color: $indicator-checked-color;
 }
+@import 'minicard';

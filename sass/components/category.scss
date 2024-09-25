@@ -54,15 +54,4 @@ $columns: 4; // Number of boxes in a row (you can change this)
     }
 }
 
-// Media query for smaller screens
-@media (max-width: 768px) {
-    .Categories {
-        grid-template-columns: repeat(2, 1fr); // 2 boxes per row for smaller screens
-    }
-}
-
-@media (max-width: 480px) {
-    .Categories {
-        grid-template-columns: 1fr; // 1 box per row for very small screens
-    }
-}
+@import 'category(mobile)';
