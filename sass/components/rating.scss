@@ -2,6 +2,7 @@
     .rating:not(:checked) > input {
       position: absolute;
       appearance: none;
+
     }
   
     .rating:not(:checked) > label {
@@ -9,6 +10,7 @@
       cursor: pointer;
       font-size: 30px;
       color: #666;
+      left: 20px;
     }
   
     .rating:not(:checked) > label:before {

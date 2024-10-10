@@ -1,86 +1,477 @@
+.form {
+  width: 400px;
+  min-height: 400px;
+  height: fit-content;
+  position: absolute;
+  top: -600px;
+  left: auto;
+  justify-self: center;
+  background-color: get-color($current-theme, "primary");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  left: 50%;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+      rgba(0, 0, 0, 0.2) 0px 10px 30px, 
+      rgba(255, 255, 255, 0.5) 0px 0px 15px inset; // Outer and inset shadow for depth
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 
-.form{
-    width: 400px;
-    min-height: 400px;
-    height: fit-content;
-    position:absolute;
-    top: -600px;
-    left: auto;
-    justify-self: center;
-    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
-    background-color: get-color($current-theme, "primary");
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    left:50%;
-    z-index: 20;
-    transform: translate(-50%,-50%);
-    .state{
+  border: 4px solid transparent; // Initial transparent border for the 3D effect
+
+  &:hover {
+      transform: translate(-50%, -50%) scale(1.05); // Slightly enlarge on hover
+      box-shadow: 
+          rgba(0, 0, 0, 0.3) 0px 15px 30px, 
+          rgba(255, 255, 255, 0.4) 0px 0px 25px inset; // Change shadow on hover
+      border-color: rgba(255, 255, 0, 0.8); // Change border color on hover to enhance 3D effect
+  }
+
+  .lform {
       display: flex;
-      width: 100%;
-      button{
-        margin-top: 20px;
-        margin-bottom: 20px;
-        width: 50%;
-        height: 40px;
-        background-color: #00000000;
-        border: #00000000;
-        color: get-color($current-theme,'text');
-  
-      }
-      .loginOption{
-        border-bottom: 4px solid yellow;
-      }
-      .underline{
-        width: 50%;
-        height: 20px;
-        background-color: white;
-  
-      }
-    }
-    form{
+      flex-direction: column;
+  }
+
+  .login form {
       display: flex;
       flex-direction: column;
       gap: 20px;
+  }
+  .register form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  }
+  .submitbtn{
+
+  height: 50px;
+  margin-top: 25px;
+  width: 300px;
+  background: #000000;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: Consolas, Courier New, monospace;
+  border: solid #404c5d 1px;
+  font-size: 16px;
+
+  color: rgb(161, 161, 161);
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #2e2d2d, #212121);
+  -webkit-box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+    inset 5px 5px 10px #212121, inset -5px -5px 10px #212121;
+  box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+    inset 5px 5px 10px #212121, inset -5px -5px 10px #212121;
+  }
+  .state {
+      display: flex;
+      width: 100%;
+      
+      button {
+          margin-top: 20px;
+          margin-bottom: 20px;
+          width: 50%;
+          height: 40px;
+          background-color: transparent; // Make background transparent
+          border: none;
+          color: get-color($current-theme, 'text');
+          position: relative;
+
+          &:hover {
+              color: white; // Change text color on hover
+              text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px; // Shadow effect on hover
+          }
+      }
+
+      .loginOption {
+          border-bottom: 4px solid yellow;
+      }
+
+      .underline {
+          width: 50%;
+          height: 20px;
+          background-color: white;
+          position: relative;
+          transition: transform 0.3s ease; // Smooth transition for underline
+
+          // Move underline on button click
+          .loginOption:focus ~ .underline,
+          .registerOption:focus ~ .underline {
+              transform: translateX(100%); // Move the underline
+          }
+      }
+  }
+
+  form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       margin-bottom: 40px;
-  
-      input{
-        width: 300px;
-        height: 30px;
-        border-radius: 5px;
+      
+      input {
+          width: 300px;
+          height: 30px;
+          border-radius: 5px;
+          transition: border-color 0.3s ease;
+          outline: 0;
+          color: #ffffff;
+
+
       }
-      .error{
-        border: red solid 3px;
-  
+
+      .error {
+          border: red solid 3px;
       }
-    }
-    label{
+  }
+
+  label {
       color: get-color($current-theme, "text");
-    }
   }
-  .formbg{
-    display:none ;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0;
-    z-index: 5;
-    background-color: #3333338a;
+}
+
+.formbg {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0;
+  z-index: 5;
+  background-color: rgba(51, 51, 51, 0.54); // Slightly transparent dark background
+}
+
+.register {
+  display: none;
+}
+
+.loginerror {
+  width: 200px;
+  height: 40px;
+  display: none;
+  background-color: pink;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wave-group {
+    position: relative;
   }
   
-  .register{
-    display:none;
+  .wave-group .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 300px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+    text-align:center;
+
   }
-  .loginerror{
-    width: 200px;
-    height: 40px;
-    display: none;
-    background-color: pink;
+  
+  .wave-group .input:focus {
+    outline: none;
+  }
+  
+  .wave-group .label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
     position: absolute;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
   }
+  
+  .wave-group .label-char {
+    transition: 0.5s ease all;
+    transition-delay: calc(var(--index) * .05s);
+  }
+  
+  .wave-group .input:focus ~ label .label-char,
+  .wave-group .input:valid ~ label .label-char {
+    transform: translateY(-18px);
+    font-size: 18px;
+    color: #ffffff;
+  }
+  
+  .wave-group .bar {
+    position: relative;
+    display: block;
+    width: 310px;
+  }
+  
+  .wave-group .bar:before,.wave-group .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  
+  .wave-group .bar:before {
+    left: 50%;
+  }
+  
+  .wave-group .bar:after {
+    right: 50%;
+  }
+  
+  .wave-group .input:focus ~ .bar:before,
+  .wave-group .input:focus ~ .bar:after {
+    width: 50%;
+  }
+
+  .login ,.register{
+    .btn {
+      font-size: 17px;
+      width:300px;
+      background: transparent;
+      border: none;
+      padding-bottom: 10px;
+      padding-top: 6px;
+      padding: 1em 1.5e;
+      color: #999;
+      text-transform: uppercase;
+      position: relative;
+      transition: 0.5s ease;
+      cursor: pointer;
+    }
+    
+    .btn::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #ffc506;
+      transition: 0.5s ease;
+    }
+    
+    .btn:hover {
+    
+      transition-delay: 0.5s;
+    }
+    
+    .btn:hover::before {
+      width: 100%;
+    }
+    
+    .btn::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 0;
+      width: 100%;
+      background-color: #ffc506;
+      transition: 0.4s ease;
+      z-index: -1;
+    }
+    
+    .btn:hover::after {
+      height: 10%;
+      transition-delay: 0.4s;
+      color: aliceblue;
+    }
+    
+  
+  }
+input,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 50px rgba(255, 9, 9, 0) inset !important;
+  background-color: transparent !important;
+  background-clip: text;
+  color: white;
+}
+
+.repairForm{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  form .repform{
+    margin-bottom: 30px;
+  }
+  form label{
+    color: #212121;
+  }
+  form{
+    input,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 50px rgba(255, 9, 9, 0) inset !important;
+  background-color: transparent !important;
+  background-clip: text;
+  color: white;
+}
+  
+.wave-group .input:focus ~ label .label-char,
+.wave-group .input:valid ~ label .label-char {
+  transform: translateY(-18px);
+  font-size: 18px;
+  color: black;
+}
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  width: 550px;
+  box-sizing: border-box;
+
+  h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+      letter-spacing: 1px;
+  }
+
+  .form-group {
+      margin-bottom: 16px;
+
+      label {
+          font-size: 14px;
+          color: #777;
+          margin-bottom: 6px;
+          display: block;
+      }
+
+      .form-control {
+          width: 100%;
+          padding: 12px 16px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-size: 16px;
+          box-sizing: border-box;
+          background-color: #f7f7f7;
+          transition: border-color 0.3s, box-shadow 0.3s;
+
+          &:focus {
+              border-color: #007bff;
+              background-color: #fff;
+              box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+              outline: none;
+          }
+      }
+  }
+
+  .flex-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      > div {
+          flex: 1;
+      }
+
+      > div:not(:last-child) {
+          margin-right: 10px;
+      }
+  }
+
+  .other-input {
+      display: none;
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 20px;
+      background-color: #f7f7f7;
+      box-sizing: border-box;
+  }
+
+  .show-other .other-input {
+      display: block;
+  }
+
+  .cost-display {
+      font-size: 13px;
+      color: #555;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+  }
+
+  .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 10px;
+
+      &:hover {
+          background-color: #0056b3;
+          box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+      }
+  }
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 500px) {
+  .form-container {
+      width: 100%;
+      padding: 20px;
+  }
+
+  .flex-group {
+      flex-direction: column;
+
+      > div {
+          width: 100%;
+          margin-right: 0;
+      }
+
+      .other-input {
+          margin-top: 10px;
+      }
+  }
+}
+.hidden {
+  display: none;
+}
+.form-row {
+  margin-bottom: 15px;
+}
+.repairform input{
+  color: #000000;
+}

@@ -58,3 +58,15 @@ body{
   margin-left: 30px;
   margin-right: 30px;
 }
+
+// Define color variables
+.thank-you-container {
+  background-color: #fff;
+  padding: 20px;
+  margin: auto;
+  width: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.thank-you-container h2 {
+  color: #4CAF50;
+}
