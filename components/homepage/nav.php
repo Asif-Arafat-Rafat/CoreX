@@ -43,7 +43,7 @@
         </div>
           <div class="iconpack cartBtn">
                   <div class="icon carticon"><img src="./image/icons/cart.svg" alt="issue"></div>
-                  <p>Cart</p>
+                  <p>Cart (<span id="cartcount"> 0 </span>)</p>
           </div>
 '
         ;
